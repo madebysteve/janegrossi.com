@@ -26,7 +26,6 @@ html {
   height: 100vh;
   aspect-ratio: 1/1;
   margin: 0;
-  padding: 0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -69,6 +68,12 @@ html {
   transform: rotateY(180deg);
 }
 .YouWin {
+  display: none;
+  height: 100vh;
+  aspect-ratio: 1/1;
+  padding: .5%;
   text-align: center;
   font-size: 6rem;
 }
+.Winner .Board { display: none; }
+.Winner .YouWin { display: block; }

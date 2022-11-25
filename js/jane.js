@@ -10,11 +10,24 @@ const bugs = {
 };
 const ids = Object.keys(bugs);
 const cards = [...ids, ...ids];
-const shuffledCards = cards
-  .map(value => ({ value, sort: Math.random() }))
-  .sort((a, b) => a.sort - b.sort)
-  .map(({ value }) => value);
+const shuffle = (array) => {
+  return array
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+};
+let shuffledCards = shuffle(cards);
+const body = document.body;
 const board = document.getElementById('board');
+const resetButton = document.getElementById('playagain');
+resetButton.onclick = () => {
+  body.classList.remove('Winner');
+  selectedId = null;
+  matched = [];
+  shuffledCards = shuffle(cards);
+  setupBoard(shuffledCards);
+  unflipNonMatches();
+};
 let selectedId = null;
 let matched = [];
 const unflipNonMatches = () => {
@@ -27,7 +40,7 @@ const unflipNonMatches = () => {
 const checkForWin = () => {
   if(ids.sort().join(',') === matched.sort().join(',')) {
     setTimeout(() => {
-      board.innerHTML = '<h1 class="YouWin">You<br>win!</h1>';
+      body.classList.add('Winner');
     }, 1000);
   }
 };
@@ -47,21 +60,24 @@ const onCardClick = (event) => {
     selectedId = clickedId;
   }
 };
-shuffledCards.forEach(id => {
-  const li = document.createElement('li');
-  li.classList.add('Card');
-  const cardInner = document.createElement('div');
-  cardInner.classList.add('Card-inner');
-  const cardFront = document.createElement('div');
-  cardFront.classList.add('Card-front');
-  const cardBack = document.createElement('div');
-  cardBack.classList.add('Card-back');
-  cardInner.appendChild(cardFront);
-  cardInner.appendChild(cardBack);
-  li.appendChild(cardInner);
-  cardBack.innerText = bugs[id];
-  board.appendChild(li);
-  li.onclick = onCardClick;
-  li.dataset.id = id;
-});
-
+const setupBoard = (cards) => {
+  board.innerHTML = '';
+  cards.forEach(id => {
+    const li = document.createElement('li');
+    li.classList.add('Card');
+    const cardInner = document.createElement('div');
+    cardInner.classList.add('Card-inner');
+    const cardFront = document.createElement('div');
+    cardFront.classList.add('Card-front');
+    const cardBack = document.createElement('div');
+    cardBack.classList.add('Card-back');
+    cardInner.appendChild(cardFront);
+    cardInner.appendChild(cardBack);
+    li.appendChild(cardInner);
+    cardBack.innerText = bugs[id];
+    board.appendChild(li);
+    li.onclick = onCardClick;
+    li.dataset.id = id;
+  });
+};
+setupBoard(shuffledCards);

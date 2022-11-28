@@ -6,23 +6,47 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  font-family: 'Luckiest Guy', serif;
+  overflow: hidden;
 }
 
 .Container {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  background-color: blue;
 }
 
 .Sidebar {
-  background-color: red;
+  /* background-color: #73BA1C; */
+  position: relative;
   flex-grow: 1;
   height: 100vh;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.Logo {
+  font-size: 2em;
+  text-align: center;
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+  color: #DE0965;
+  text-shadow: 2px 2px 0px #fff, 1px 3px 3px rgba(0,0,0,.25);
+  animation: rock 2s ease-in-out infinite;
+}
+.CoverImage {
+  flex-grow: 1;
+  background-image: url('../img/jane/jane-tree.jpg');
+  background-size: cover;
+  margin: 1em 2em;
+  border: 1em solid white;
+  box-shadow: 0px 5px 10px rgba(0,0,0,.25);
+  transform: rotate(-2deg);
 }
 
 .Board {
-  background-color: green;
+  background-color: #73BA1C;
   height: 100vh;
   aspect-ratio: 1/1;
   margin: 0;
@@ -52,20 +76,27 @@ html {
   transform: rotateY(180deg);
 }
 .Card-front, .Card-back {
-  padding: 1rem;
+  padding: .5rem;
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0,.25);
 }
 .Card-front {
-  background-color: #bbb;
-  color: black;
+  background-color: #DE0965;
+  background-image: url('../img/jane/stagbeetle.svg');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .Card-back {
-  background-color: dodgerblue;
-  color: white;
+  background-color: white;
   transform: rotateY(180deg);
+}
+.Card-back img {
+  width: 100%;
+  height: 100%;
 }
 .YouWin {
   display: none;
@@ -77,3 +108,131 @@ html {
 }
 .Winner .Board { display: none; }
 .Winner .YouWin { display: block; }
+
+.Button {
+  background-color: #DE0965;
+}
+
+.starburst {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.starburst * {
+  z-index: 0;
+}
+.starburst--both {
+  overflow: hidden;
+  background-image:
+  linear-gradient(0deg, transparent 50%, #5E9915 50%),
+  linear-gradient(11deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(22deg, transparent 50%, #5E9915 50%),
+  linear-gradient(33deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(44deg, transparent 50%, #5E9915 50%),
+  linear-gradient(55deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(66deg, transparent 50%, #5E9915 50%),
+  linear-gradient(77deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(88deg, transparent 50%, #5E9915 50%),
+  linear-gradient(99deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(110deg, transparent 50%, #5E9915 50%),
+  linear-gradient(121deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(132deg, transparent 50%, #5E9915 50%),
+  linear-gradient(143deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(154deg, transparent 50%, #5E9915 50%),
+  linear-gradient(165deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(176deg, transparent 50%, #5E9915 50%),
+  linear-gradient(187deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(198deg, transparent 50%, #5E9915 50%),
+  linear-gradient(209deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(220deg, transparent 50%, #5E9915 50%),
+  linear-gradient(231deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(242deg, transparent 50%, #5E9915 50%),
+  linear-gradient(253deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(264deg, transparent 50%, #5E9915 50%),
+  linear-gradient(275deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(286deg, transparent 50%, #5E9915 50%),
+  linear-gradient(297deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(308deg, transparent 50%, #5E9915 50%),
+  linear-gradient(319deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(330deg, transparent 50%, #5E9915 50%),
+  linear-gradient(341deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(352deg, transparent 50%, #5E9915 50%);
+}
+.starburst--both::before {
+  background-image:
+  linear-gradient(180deg, transparent 50%, #5E9915 50%),
+  linear-gradient(191deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(202deg, transparent 50%, #5E9915 50%),
+  linear-gradient(213deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(224deg, transparent 50%, #5E9915 50%),
+  linear-gradient(235deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(246deg, transparent 50%, #5E9915 50%),
+  linear-gradient(257deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(268deg, transparent 50%, #5E9915 50%),
+  linear-gradient(279deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(290deg, transparent 50%, #5E9915 50%),
+  linear-gradient(301deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(312deg, transparent 50%, #5E9915 50%),
+  linear-gradient(323deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(334deg, transparent 50%, #5E9915 50%),
+  linear-gradient(345deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(356deg, transparent 50%, #5E9915 50%);
+}
+.starburst--both::after {
+  top: 50% !important;
+  background-position: 0 100%;
+  background-size: 100% 200%;
+  background-image:
+  linear-gradient(0deg, transparent 50%, #5E9915 50%),
+  linear-gradient(11deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(22deg, transparent 50%, #5E9915 50%),
+  linear-gradient(33deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(44deg, transparent 50%, #5E9915 50%),
+  linear-gradient(55deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(66deg, transparent 50%, #5E9915 50%),
+  linear-gradient(77deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(88deg, transparent 50%, #5E9915 50%),
+  linear-gradient(99deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(110deg, transparent 50%, #5E9915 50%),
+  linear-gradient(121deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(132deg, transparent 50%, #5E9915 50%),
+  linear-gradient(143deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(154deg, transparent 50%, #5E9915 50%),
+  linear-gradient(165deg, transparent 50%, #73BA1C 50%),
+  linear-gradient(176deg, transparent 50%, #5E9915 50%);
+}
+.starburst--both::before,
+.starburst--both::after {
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.starburst div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center,  rgba(125,185,232,0) 0%,rgba(124,183,230,0) 1%,rgba(0,0,0,1) 100%);
+}
+
+@keyframes rock {
+  0% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}

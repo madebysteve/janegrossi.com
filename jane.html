@@ -9,16 +9,26 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/jane.css">
   <meta name="theme-color" content="#fafafa">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet"> 
 </head>
 <body class="Container">
   <header class="Sidebar">
-    Name of the Game
+    <section class="starburst starburst--both">
+    </section>
+    <div class="Logo">
+      <span style="font-size: 3em;line-height: 1;">Jane</span>
+      <span>the</span>
+      <span style="font-size: 2em;">Entomologist</span>
+    </div>
+    <div class="CoverImage"></div>
   </header>
   <ul class="Board" id="board"></ul>
   <div class="YouWin">
     You
     <br>Win!
-    <br><button id="playagain">Play Again</button>
+    <br><button id="playagain" class="Button">Play Again</button>
   </div>
 
   <script src="js/jane.js"></script>

@@ -1,12 +1,12 @@
 const bugs = {
-  1: 'A',
-  2: 'B',
-  3: 'C',
-  4: 'D',
-  5: 'E',
-  6: 'F',
-  7: 'G',
-  8: 'H',
+  1: 'img/jane/beetle.jpg',
+  2: 'img/jane/caterpillar.jpg',
+  3: 'img/jane/cicada.jpg',
+  4: 'img/jane/leafbug.jpg',
+  5: 'img/jane/mantis-hair.jpg',
+  6: 'img/jane/mantis-hand.jpg',
+  7: 'img/jane/mantis.jpg',
+  8: 'img/jane/moth.jpg',
 };
 const ids = Object.keys(bugs);
 const cards = [...ids, ...ids];
@@ -74,7 +74,7 @@ const setupBoard = (cards) => {
     cardInner.appendChild(cardFront);
     cardInner.appendChild(cardBack);
     li.appendChild(cardInner);
-    cardBack.innerText = bugs[id];
+    cardBack.innerHTML = `<img src="${bugs[id]}" alt="${id}" />`;
     board.appendChild(li);
     li.onclick = onCardClick;
     li.dataset.id = id;

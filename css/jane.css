@@ -37,7 +37,7 @@ html {
 }
 .CoverImage {
   flex-grow: 1;
-  background-image: url('../img/jane/jane-tree.jpg');
+  background-image: url('../img/jane-tree.jpg');
   background-size: cover;
   margin: 1em 2em;
   border: 1em solid white;
@@ -85,7 +85,7 @@ html {
 }
 .Card-front {
   background-color: #DE0965;
-  background-image: url('../img/jane/stagbeetle.svg');
+  background-image: url('../img/stagbeetle.svg');
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;

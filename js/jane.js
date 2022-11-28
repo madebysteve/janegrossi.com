@@ -1,12 +1,12 @@
 const bugs = {
-  1: 'img/jane/beetle.jpg',
-  2: 'img/jane/caterpillar.jpg',
-  3: 'img/jane/cicada.jpg',
-  4: 'img/jane/leafbug.jpg',
-  5: 'img/jane/mantis-hair.jpg',
-  6: 'img/jane/mantis-hand.jpg',
-  7: 'img/jane/mantis.jpg',
-  8: 'img/jane/moth.jpg',
+  1: 'img/beetle.jpg',
+  2: 'img/caterpillar.jpg',
+  3: 'img/cicada.jpg',
+  4: 'img/leafbug.jpg',
+  5: 'img/mantis-hair.jpg',
+  6: 'img/mantis-hand.jpg',
+  7: 'img/mantis.jpg',
+  8: 'img/moth.jpg',
 };
 const ids = Object.keys(bugs);
 const cards = [...ids, ...ids];

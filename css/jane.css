@@ -7,13 +7,12 @@ html {
   font-size: 1em;
   line-height: 1.4;
   font-family: 'Luckiest Guy', serif;
-  overflow: hidden;
   background-color: #73BA1C;
 }
 
 .Container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
 }
 
@@ -54,6 +53,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   padding: .5%;
+  overflow: hidden;
 }
 .Card {
   flex-basis: 23%;
@@ -242,5 +242,11 @@ html {
   }
   100% {
     transform: rotate(2deg);
+  }
+}
+
+@media (min-aspect-ratio: 3/2) {
+  .Container {
+    flex-direction: row;
   }
 }

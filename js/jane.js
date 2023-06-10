@@ -46,6 +46,7 @@ const checkForWin = () => {
 };
 const onCardClick = (event) => {
   const clickedId = event.currentTarget.dataset.id;
+  if (event.currentTarget.classList.contains('Card--flipped')) return;
   event.currentTarget.classList.add('Card--flipped');
   if (selectedId) {
     if (selectedId === clickedId) {
